@@ -51,9 +51,9 @@ function searchList() {
 					<tr> 
 						<td>${dto.listNum}</td>
 						<td class="left">
-							<!-- /bbs 에서 /는 contextPath 임 -->
+							<!-- /bbs 에서 /는 contextPath -->
 							<c:url var="url" value="/bbs/article">
-								<!-- 파라미터 : 자동으로 인코딩 됨 -->
+								<!-- 파라미터 : 자동으로 인코딩 -->
 								<c:param name="num" value="${dto.num}"/>
 								<c:param name="page" value="${page}"/>
 								<c:if test="${not empty keyword}">

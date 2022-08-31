@@ -17,6 +17,7 @@
 </style>
 
 <script type="text/javascript">
+// 회원가입 유효성
 function memberOk() {
 	const f = document.memberForm;
 	let str;
@@ -100,6 +101,7 @@ function memberOk() {
     f.submit();
 }
 
+// 선택한 이메일로 변환
 function changeEmail() {
     const f = document.memberForm;
 	    

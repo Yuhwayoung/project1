@@ -40,6 +40,7 @@ $(function(){
 	});
 });
 
+// 하이차트
 $(function(){
 	let url = "${pageContext.request.contextPath}/admin/memberManage/ageAnalysis";
 	

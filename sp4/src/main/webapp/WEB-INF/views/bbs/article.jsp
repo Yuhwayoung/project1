@@ -55,7 +55,7 @@ function ajaxFun(url, method, query, dataType, fn) {
 	});
 }
 
-$(function() {
+$(function() { // 게시물 공감
 	$(".btnSendBoardLike").click(function() {
 		const $i = $(this).find("i");
 		let userLiked = $i.css("color") === "rgb(0, 0, 255)";
@@ -283,9 +283,9 @@ $(function() {
 		let replyLike = $(this).attr("data-replyLike");
 		const $btn = $(this);
 		
-		var msg = "게시글이 마음에 들지 않으십니까 ? ";
+		var msg = "댓글이 마음에 들지 않으십니까 ? ";
 		if(replyLike === "1") {
-			msg = "게시글에 공감하십니까 ? ";
+			msg = "댓글에 공감하십니까 ? ";
 		}
 		
 		if(! confirm(msg)) {

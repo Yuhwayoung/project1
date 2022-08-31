@@ -26,15 +26,11 @@
 					<c:choose>
 						<c:when test="${sessionScope.member.userId==vo.userId}">
 							<div class='deleteReply reply-menu-item' data-replyNum='${vo.replyNum}' data-pageNo='${pageNo}'>삭제</div>
-							<div class='hideReply reply-menu-item'>숨김</div>
 						</c:when>
 						<c:when test="${sessionScope.member.membership > 50}">
 							<div class='deleteReply reply-menu-item' data-replyNum='${vo.replyNum}' data-pageNo='${pageNo}'>삭제</div>
-							<div class='blockReply reply-menu-item'>차단</div>
 						</c:when>
 						<c:otherwise>
-							<div class='notifyReply reply-menu-item'>신고</div>
-							<div class='blockReply reply-menu-item'>차단</div>
 						</c:otherwise>
 					</c:choose>
 				</div>

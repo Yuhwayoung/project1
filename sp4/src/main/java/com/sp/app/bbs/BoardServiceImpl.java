@@ -38,7 +38,8 @@ public class BoardServiceImpl implements BoardService {
 		}
 		
 	}
-
+	
+	// 리스트
 	@Override
 	public List<Board> listBoard(Map<String, Object> map) {
 		List<Board> list = null;
@@ -52,6 +53,7 @@ public class BoardServiceImpl implements BoardService {
 		return list;
 	}
 
+	// 총 게시판 개수
 	@Override
 	public int dataCount(Map<String, Object> map) {
 		int result = 0;
@@ -63,7 +65,8 @@ public class BoardServiceImpl implements BoardService {
 		
 		return result;
 	}
-
+	
+	// 게시판 읽기
 	@Override
 	public Board readBoard(int num) {
 		Board dto = null;
@@ -76,7 +79,8 @@ public class BoardServiceImpl implements BoardService {
 		
 		return dto;
 	}
-
+	
+	// 조회수 증가
 	@Override
 	public void updateHitCount(int num) throws Exception {
 		try {
@@ -86,7 +90,8 @@ public class BoardServiceImpl implements BoardService {
 			throw e;
 		}
 	}
-
+	
+	// 이전글
 	@Override
 	public Board preReadBoard(Map<String, Object> map) {
 		Board dto = null;
@@ -99,7 +104,8 @@ public class BoardServiceImpl implements BoardService {
 		
 		return dto;
 	}
-
+	
+	// 다음글
 	@Override
 	public Board nextReadBoard(Map<String, Object> map) {
 		Board dto = null;
@@ -112,7 +118,8 @@ public class BoardServiceImpl implements BoardService {
 		
 		return dto;
 	}
-
+	
+	// 수정
 	@Override
 	public void updateBoard(Board dto, String pathname) throws Exception {
 		try {
@@ -137,7 +144,8 @@ public class BoardServiceImpl implements BoardService {
 		}
 		
 	}
-
+	
+	// 삭제
 	@Override
 	public void deleteBoard(int num, String pathname, String userId, int membership) throws Exception {
 		try {
@@ -157,7 +165,8 @@ public class BoardServiceImpl implements BoardService {
 			throw e;
 		}
 	}
-
+	
+	// 게시글 좋아요
 	@Override
 	public void insertBoardLike(Map<String, Object> map) throws Exception {
 		try {
@@ -169,6 +178,7 @@ public class BoardServiceImpl implements BoardService {
 		
 	}
 
+	// 게시글 좋아요 삭제
 	@Override
 	public void deleteBoardLike(Map<String, Object> map) throws Exception {
 		try {

@@ -42,9 +42,7 @@ public class MemberServiceImpl implements MemberService {
 			// 회원정보 저장
 			dao.insertData("member.insertMember", memberSeq);
 
-			// dao.insertData("member.insertMember1", dto);
-			// dao.insertData("member.insertMember2", dto);
-			dao.updateData("member.insertMember12", dto); // member1, member2 테이블 동시에
+			dao.updateData("member.insertMember12", dto); // member1, member2 테이블 동시에 insert
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
@@ -73,34 +71,6 @@ public class MemberServiceImpl implements MemberService {
 				}
 			}
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return dto;
-	}
-
-	@Override
-	public Member readMember(long memberIdx) {
-		Member dto = null;
-
-		try {
-			dto = dao.selectOne("member.readMember2", memberIdx);
-
-			if (dto != null) {
-				if (dto.getEmail() != null) {
-					String[] s = dto.getEmail().split("@");
-					dto.setEmail1(s[0]);
-					dto.setEmail2(s[1]);
-				}
-
-				if (dto.getTel() != null) {
-					String[] s = dto.getTel().split("-");
-					dto.setTel1(s[0]);
-					dto.setTel2(s[1]);
-					dto.setTel3(s[2]);
-				}
-			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

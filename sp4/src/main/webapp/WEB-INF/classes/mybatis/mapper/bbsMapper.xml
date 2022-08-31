@@ -10,14 +10,6 @@
 				0, SYSDATE)	
 	</insert>
 	
-	<!-- 
-	  - 주의 : ${}는 테이블명, 컬럼명이 동적일때 사용하며 값 부분에는 사용하면 오류 발생
-	  	   값 부분은 반드시 #{}로 사용하며, #{}는 ?로 치환되어 쿼리는 PreparedStatement 객체로 실행된다.
-	  - DBMS_LOB.INSTR() : CLOB 타입에서 검색시 이용
-	  - INSTR() 대신 LIKE를 사용하는 경우
-	  	subject  LIKE '%' || #{keyword} || '%'
-	 -->
-	
 	<sql id="where-list">
 		<choose>
 			<when test="condition == 'all' ">
@@ -200,6 +192,7 @@
 		ORDER BY replyNum DESC
 	</select>
 	
+	<!-- 댓글삭제 -->
 	<delete id="deleteReply" parameterType="map">
 		DELETE FROM bbsReply
 		WHERE replyNum = #{replyNum}
@@ -207,22 +200,6 @@
 			OR answer = #{replyNum}
 		</if>
 	</delete>
-	
-	<!--
-	<delete id="deleteReply" parameterType="map">
-		DELETE FROM bbsReply WHERE
-		<if test="mode=='reply'">
-			replyNum IN (
-				SELECT replyNum FROM bbsReply
-				START WITH replyNum = #{replyNum}
-				CONNECT BY PRIOR replyNum = answer
-			)
-		</if>
-		<if test="mode=='answer'">
-			replyNum = #{replyNum}
-		</if>
-	</delete>
-	-->
 	
 	<!-- 좋아요/싫어요 추가 -->
 	<insert id="inserReplyLike" parameterType="map">

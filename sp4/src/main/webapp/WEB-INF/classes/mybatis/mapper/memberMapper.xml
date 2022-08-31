@@ -56,18 +56,6 @@
 		LEFT OUTER JOIN member2 m2 ON m1.userId = m2.userId
 		WHERE m1.userId = #{userId}
 	</select>
-
-	<select id="readMember2" parameterType="Long" resultType="com.sp.app.member.Member">
-		SELECT m.memberIdx, membership, enabled, 
-			NVL(m1.userId, 'guest') userId, NVL(userName, '손님') userName, userPwd, 
-			register_date, modify_date, last_login,
-			TO_CHAR(birth, 'YYYY-MM-DD') birth, email, tel,
-			zip, addr1, addr2
-		FROM member m
-		LEFT OUTER JOIN member1 m1 ON m.memberIdx = m1.memberIdx
-		LEFT OUTER JOIN member2 m2 ON m1.userId = m2.userId
-		WHERE m.memberIdx = #{memberIdx}
-	</select>
 	
     <!-- 회원정보 수정  --> 
     <update id="updateMembership" parameterType="map">

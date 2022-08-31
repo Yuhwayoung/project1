@@ -57,8 +57,10 @@ public class BoardController {
 		// 파일을 저장할 경로
 		String root = session.getServletContext().getRealPath("/");
 		String pathname = root + "uploads" + File.separator + "bbs";
-		
-		logger.debug("debug log={}", pathname);
+		/*
+		 *  C:\work\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\sp4\
+		 *  uploads\bbs
+		 */
 		
 		try {
 			dto.setUserId(info.getUserId()); // 게시글을 올린 사람(로그인한 유저)
@@ -89,7 +91,7 @@ public class BoardController {
 		
 		service.updateHitCount(num);
 		
-		// 해당 레코드 가져오기
+		// 해당 데이터 가져오기
 		Board dto = service.readBoard(num);
 		if(dto == null) {
 			return "redirect:/?" + query;
@@ -161,6 +163,7 @@ public class BoardController {
 		return "redirect:/?page="+page;
 	}
 	
+	// 파일 삭제
 	@RequestMapping("deleteFile")
 	public String deleteFile(@RequestParam int num,
 			@RequestParam String page,
@@ -221,6 +224,7 @@ public class BoardController {
 		return "redirect:/?"+query;
 	}
 	
+	// 파일 다운로드
 	@RequestMapping(value = "download")
 	public void download(@RequestParam int num,
 			HttpServletRequest req, HttpServletResponse resp,
@@ -229,7 +233,7 @@ public class BoardController {
 		String root = session.getServletContext().getRealPath("/");
 		String pathname = root + "uploads" + File.separator + "bbs";
 		
-		logger.debug("debug log={}", pathname);
+		logger.debug("debug log={}", pathname); // log4j
 		Board dto = service.readBoard(num);
 		
 		if(dto != null) {

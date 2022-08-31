@@ -12,7 +12,7 @@
 		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
 	
-   <!-- 2단 관리자 -->
+   <!-- 관리자 -->
 	<definition name=".adminLayout" template="/WEB-INF/views/admin/layout/layout2.jsp">
 	    <put-attribute name="title" value="spring" />
 	  	<put-attribute name="left" value="/WEB-INF/views/admin/layout/left.jsp" />
@@ -28,7 +28,7 @@
     	<put-attribute name="body" value="/WEB-INF/views/admin/{1}.jsp" />
 	</definition>
 	
-	<!-- 순서가 바뀌면 안됨(* 많은것이 위에) -->
+	<!-- * 많은것이 위에 -->
 	<definition name=".*.*.*" extends=".mainLayout">
 		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}/{3}.jsp"/>
 	</definition>

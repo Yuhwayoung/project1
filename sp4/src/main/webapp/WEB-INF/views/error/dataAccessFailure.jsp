@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
-   response.setStatus(HttpServletResponse.SC_OK);
+   response.setStatus(HttpServletResponse.SC_OK); // 에러페이지
 %>
 
 <div class="container body-container">

@@ -12,7 +12,6 @@ public interface MemberService {
 	public void updateMember(Member dto) throws Exception;
 	
 	public Member readMember(String userId);
-	public Member readMember(long memberIdx);
 	
 	public void deleteMember(Map<String, Object> map) throws Exception;
 }
